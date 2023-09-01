@@ -1,0 +1,13 @@
+const [tasks, setTasks] = useState({
+    todo: ['Task 1', 'Task 2', 'Task 3'],
+    inProgress: [],
+    taskDone: [],
+  });
+
+  const moveTask = (taskIndex, sourceSection, destinationSection) => {
+    const updatedTasks = { ...tasks };
+    const taskToMove = updatedTasks[sourceSection][taskIndex];
+    updatedTasks[sourceSection].splice(taskIndex, 1);
+    updatedTasks[destinationSection].push(taskToMove);
+    setTasks(updatedTasks);
+  };
